@@ -28,6 +28,7 @@ namespace File_Monitoring_Windows_Service
             {
                 Directory.CreateDirectory(ConfigurationManager.AppSettings["DestinationFolder"]);
             }
+
         }
         private void LogFunc(string Message)
         {
@@ -50,9 +51,7 @@ namespace File_Monitoring_Windows_Service
 
                 string newFileName = Guid.NewGuid().ToString() + extension;
 
-                //string newFilePath = Path.Combine(directory, newFileName);
-                //File.Move(sourceFilePath, newFilePath);
-                //File.Delete(sourceFilePath);
+               
                 
                 LogFunc($"Renamed file: {fileNameWithoutExtension} to {newFileName}");
 
@@ -95,6 +94,7 @@ namespace File_Monitoring_Windows_Service
             {
                 Console.WriteLine("File Monitoring Service Started.");
             }
+
             FileSystemWatcher watcher = new FileSystemWatcher(ConfigurationManager.AppSettings["SourceFolder"]);
             watcher.EnableRaisingEvents = true;
             watcher.Created += Watcher_Created;
