@@ -130,7 +130,10 @@ namespace File_Monitoring_Windows_Service
             }
         }
 
-        // This is added
+
+
+
+       
         // Simulate service behavior in console mode
         public void StartInConsole()
         {
